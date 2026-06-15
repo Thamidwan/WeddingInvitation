@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule · Onkgopotse &amp; Pabalelo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:       #F5F2ED;
+      --night:       #2C3028;
+      --gold:        #7A9A7E;
+      --champagne:   #C9BFB0;
+      --sage:        #6B8F70;
+      --ink:         #4A4640;
+      --rule:        #D4CCC0;
+      --white:       #FDFBF8;
+      --taupe:       #B5A898;
+      --taupe-light: #EAE4DC;
+      --sage-deep:   #4A6B4E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ivory);
+      color: var(--night);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PAGE HERO ───────────────────────── */
+    .page-hero {
+      background: var(--sage-deep);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .page-hero__photo {
+      position: absolute;
+      inset: 0;
+      background: url('https://withjoy.com/media/0adc45c0-4d0f-579c-969d-519b37e77781/b3a2bcd0-68a7-11f1-a395-43b5e961daa9-IMG_8613.jpeg') center / cover no-repeat;
+      opacity: 0.18;
+    }
+    .page-hero__content { position: relative; z-index: 2; }
+    .page-hero__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 0.9rem;
+    }
+    .page-hero__title {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 300;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      color: var(--ivory);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+    .page-hero__rule {
+      width: 44px;
+      height: 1px;
+      background: var(--taupe);
+      margin: 1.8rem auto 1.4rem;
+    }
+    .page-hero__sub {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      opacity: 0.8;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    .nav {
+      background: var(--night);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(107,143,112,0.25);
+    }
+    .nav__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      color: var(--sage);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 1rem 1.2rem;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav a.active { color: var(--taupe-light); }
+
+    /* ── SHARED SECTION ──────────────────── */
+    .section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .section--tinted {
+      background: var(--taupe-light);
+      max-width: 100%;
+      padding: 5rem 2rem;
+    }
+    .section--tinted .section__inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .section--dark {
+      background: var(--night);
+      max-width: 100%;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .section--dark .section__inner { max-width: 700px; margin: 0 auto; }
+
+    .section__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .section--dark .section__label { color: var(--taupe); }
+    .section--tinted .section__label { color: var(--sage-deep); }
+
+    .section__title {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--night);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+    .section--dark .section__title { color: var(--ivory); }
+
+    .ornament {
+      display: block;
+      color: var(--sage);
+      font-size: 0.9rem;
+      letter-spacing: 0.4em;
+      margin: 1rem 0 1.8rem;
+      opacity: 0.7;
+    }
+    .section--dark .ornament { color: var(--taupe); }
+
+    .section__body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--ink);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .section--dark .section__body { color: var(--champagne); }
+
+    hr.divider { border: none; border-top: 1px solid var(--rule); }
+
+    /* ── DAY TIMELINE ────────────────────── */
+    .day-schedule {
+      max-width: 580px;
+      margin: 2.5rem auto 0;
+      position: relative;
+    }
+
+    .day-schedule::before {
+      content: '';
+      position: absolute;
+      left: 56px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .sched-item {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 1.5rem;
+      margin-bottom: 0;
+      position: relative;
+      text-align: left;
+    }
+
+    .sched-item + .sched-item {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.6rem;
+      margin-top: 1.6rem;
+    }
+
+    .sched-item__time {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      padding-top: 0.15rem;
+      padding-right: 1rem;
+      text-align: right;
+      position: relative;
+    }
+
+    .sched-item__time::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--taupe);
+      border: 2px solid var(--ivory);
+    }
+
+    .sched-item--key .sched-item__time::after {
+      background: var(--sage-deep);
+      width: 10px;
+      height: 10px;
+      right: -9px;
+      top: 5px;
+    }
+
+    .sched-item__body { padding-bottom: 0.25rem; }
+
+    .sched-item__tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--sage);
+      padding: 2px 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .sched-item--key .sched-item__tag {
+      background: var(--sage-deep);
+    }
+
+    .sched-item__name {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--night);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .sched-item__detail {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.75;
+    }
+
+    .sched-item__location {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--taupe);
+      letter-spacing: 0.04em;
+      margin-top: 0.4rem;
+    }
+
+    /* ── INFO STRIP ──────────────────────── */
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 640px;
+      margin: 2.5rem auto 0;
+      border: 1px solid rgba(107,143,112,0.2);
+    }
+
+    .info-cell {
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(107,143,112,0.2);
+    }
+
+    .info-cell:last-child { border-right: none; }
+
+    .info-cell__icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+
+    .info-cell__label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .info-cell__value {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ivory);
+      line-height: 1.3;
+    }
+
+    /* ── BTN ─────────────────────────────── */
+    .btn {
+      display: inline-block;
+      margin-top: 2.2rem;
+      padding: 1rem 3rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn:hover { background: var(--gold); color: var(--ivory); }
+
+    /* ── FOOTER ──────────────────────────── */
+    .footer {
+      background: var(--night);
+      border-top: 1px solid rgba(107,143,112,0.25);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .footer__names {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--champagne);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.7rem;
+    }
+    .footer__note {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      opacity: 0.7;
+    }
+
+    /* ── RESPONSIVE ──────────────────────── */
+    @media (max-width: 900px) {
+      .day-schedule { max-width: 100%; }
+      .info-strip { max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .page-hero { padding: 4rem 1.5rem 3rem; }
+      .page-hero__title { font-size: clamp(2rem, 11vw, 3.2rem); }
+      .section { padding: 3.2rem 1.25rem; }
+      .section--tinted { padding: 3.2rem 1.25rem; }
+      .section--dark { padding: 3.2rem 1.25rem; }
+      .nav a { padding: 0.7rem 0.65rem; font-size: 9px; letter-spacing: 0.14em; }
+
+      .day-schedule::before { left: 72px; }
+      .sched-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+      .sched-item__time { font-size: 9px; }
+
+      .info-strip { grid-template-columns: 1fr; }
+      .info-cell { border-right: none; border-bottom: 1px solid rgba(107,143,112,0.2); }
+      .info-cell:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 380px) {
+      .nav a { padding: 0.6rem 0.45rem; font-size: 8px; }
+      .section { padding: 2.8rem 1rem; }
+      .page-hero { padding: 3rem 1rem 2.5rem; }
+      .sched-item { grid-template-columns: 68px 1fr; gap: 0.75rem; }
+      .sched-item__time { font-size: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero__photo" aria-hidden="true"></div>
+    <div class="page-hero__content">
+      <p class="page-hero__label">Onkgopotse &amp; Pabalelo</p>
+      <h1 class="page-hero__title">The Schedule</h1>
+      <div class="page-hero__rule"></div>
+      <p class="page-hero__sub">A day to remember · 2025</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav__inner">
+      <a href="onkgopotse-pabalelo-wedding.html">Welcome</a>
+      <a href="story.html">Our Story</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="onkgopotse-pabalelo-wedding.html#stay">Where to Stay</a>
+      <a href="faq.html">Q&amp;A</a>
+      <a href="onkgopotse-pabalelo-wedding.html#moments">Moments</a>
+      <a href="onkgopotse-pabalelo-wedding.html#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <!-- INTRO -->
+  <section class="section">
+    <p class="section__label">The big day</p>
+    <h2 class="section__title">Here's how the day will unfold</h2>
+    <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+    <p class="section__body">
+      We've planned a beautiful day and we want every guest to feel relaxed and at ease. Arrive a little early, find your seat, and let us take care of the rest.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- KEY INFO STRIP (dark bg) -->
+  <div class="section--dark">
+    <div class="section__inner">
+      <p class="section__label">At a glance</p>
+      <div class="info-strip">
+        <div class="info-cell">
+          <span class="info-cell__icon" aria-hidden="true">📅</span>
+          <p class="info-cell__label">Date</p>
+          <p class="info-cell__value">2025<br />To be confirmed</p>
+        </div>
+        <div class="info-cell">
+          <span class="info-cell__icon" aria-hidden="true">📍</span>
+          <p class="info-cell__label">Venue</p>
+          <p class="info-cell__value">Shared with<br />confirmed guests</p>
+        </div>
+        <div class="info-cell">
+          <span class="info-cell__icon" aria-hidden="true">🕐</span>
+          <p class="info-cell__label">Doors open</p>
+          <p class="info-cell__value">Please arrive<br />by 12:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <section class="section">
+    <p class="section__label">Order of the day</p>
+    <h2 class="section__title">From morning to midnight</h2>
+    <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+
+    <div class="day-schedule">
+
+      <div class="sched-item">
+        <div class="sched-item__time">11:30</div>
+        <div class="sched-item__body">
+          <span class="sched-item__tag">Arrival</span>
+          <p class="sched-item__name">Guests Arrive &amp; Settle</p>
+          <p class="sched-item__detail">Doors open. Find your seat, enjoy the pre-ceremony atmosphere and welcome drink.</p>
+          <p class="sched-item__location">📍 Ceremony venue</p>
+        </div>
+      </div>
+
+      <div class="sched-item sched-item--key">
+        <div class="sched-item__time">12:00</div>
+        <div class="sched-item__body">
+          <span class="sched-item__tag">Ceremony</span>
+          <p class="sched-item__name">The Wedding Ceremony</p>
+          <p class="sched-item__detail">We exchange our vows and say "I do" surrounded by the people we love most. Please be seated by 11:50.</p>
+          <p class="sched-item__location">📍 Ceremony hall</p>
+        </div>
+      </div>
+
+      <div class="sched-item">
+        <div class="sched-item__time">13:00</div>
+        <div class="sched-item__body">
+          <span class="sched-item__tag">Cocktail hour</span>
+          <p class="sched-item__name">Drinks &amp; Canopés</p>
+          <p class="sched-item__detail">Celebrate with us over welcome drinks while we take photographs. Mingle, enjoy the music, and relax.</p>
+          <p class="sched-item__location">📍 Garden / terrace</p>
+        </div>
+      </div>
+
+      <div class="sched-item sched-item--key">
+        <div class="sched-item__time">14:30</div>
+        <div class="sched-item__body">
+          <span class="sched-item__tag">Reception</span>
+          <p class="sched-item__name">Wedding Breakfast &amp; Speeches</p>
+          <p class="sched-item__detail">A beautiful sit-down meal followed by heartfelt speeches from those closest to us. Tissues optional.</p>
+          <p class="sched-item__location">📍 Reception hall</p>
+        </div>
+      </div>
+
+      <div class="sched-item">
+        <div class="sched-item__time">17:00</div>
+        <div class="sched-item__body">
+          <span class="sched-item__tag">Celebration</span>
+          <p class="sched-item__name">Cake Cutting &amp; First Dance</p>
+          <p class="sched-item__detail">The moment we've been looking forward to — our first dance as a married couple, followed by dancing for everyone.</p>
+          <p class="sched-item__location">📍 Dance floor</p>
+        </div>
+      </div>
+
+      <div class="sched-item">
+        <div class="sched-item__time">17:30+</div>
+        <div class="sched-item__body">
+          <span class="sched-item__tag">Evening</span>
+          <p class="sched-item__name">Dancing &amp; Evening Celebrations</p>
+          <p class="sched-item__detail">The dance floor is open. Enjoy the music, good company, and an evening to remember. More food served later in the evening.</p>
+          <p class="sched-item__location">📍 Ballroom</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TINTED NOTE -->
+  <div class="section--tinted">
+    <div class="section__inner">
+      <p class="section__label">Good to know</p>
+      <h2 class="section__title">A few things to keep in mind</h2>
+      <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+      <p class="section__body">
+        Please arrive at least 10 minutes before the ceremony begins so we can start on time. The venue address will be shared with all confirmed guests ahead of the day. If you have any questions about the schedule, head over to our Q&amp;A page.
+      </p>
+      <a class="btn" href="faq.html">View Q&amp;A</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer__names">Onkgopotse &amp; Pabalelo</p>
+    <p class="footer__note">With love · 2025</p>
+  </footer>
+
+</body>
+</html>
