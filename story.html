@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story · Onkgopotse &amp; Pabalelo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:       #F5F2ED;
+      --night:       #2C3028;
+      --gold:        #7A9A7E;
+      --champagne:   #C9BFB0;
+      --sage:        #6B8F70;
+      --ink:         #4A4640;
+      --rule:        #D4CCC0;
+      --white:       #FDFBF8;
+      --taupe:       #B5A898;
+      --taupe-light: #EAE4DC;
+      --sage-deep:   #4A6B4E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ivory);
+      color: var(--night);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PAGE HERO ───────────────────────── */
+    .page-hero {
+      background: var(--sage-deep);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .page-hero__photo {
+      position: absolute;
+      inset: 0;
+      background: url('https://withjoy.com/media/0adc45c0-4d0f-579c-969d-519b37e77781/b3a2bcd0-68a7-11f1-a395-43b5e961daa9-IMG_8613.jpeg') center / cover no-repeat;
+      opacity: 0.22;
+    }
+
+    .page-hero__content { position: relative; z-index: 2; }
+
+    .page-hero__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 0.9rem;
+    }
+
+    .page-hero__title {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 300;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      color: var(--ivory);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+
+    .page-hero__rule {
+      width: 44px;
+      height: 1px;
+      background: var(--taupe);
+      margin: 1.8rem auto 1.4rem;
+    }
+
+    .page-hero__sub {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      opacity: 0.8;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    .nav {
+      background: var(--night);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(107,143,112,0.25);
+    }
+    .nav__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      color: var(--sage);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 1rem 1.2rem;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav a.active { color: var(--taupe-light); }
+
+    /* ── SHARED SECTION ──────────────────── */
+    .section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .section--tinted { background: var(--taupe-light); }
+    .section--dark {
+      background: var(--night);
+      max-width: 100%;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .section--dark .section__inner { max-width: 700px; margin: 0 auto; }
+
+    .section__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .section--dark .section__label { color: var(--taupe); }
+
+    .section__title {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--night);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+    .section--dark .section__title { color: var(--ivory); }
+
+    .ornament {
+      display: block;
+      color: var(--sage);
+      font-size: 0.9rem;
+      letter-spacing: 0.4em;
+      margin: 1rem 0 1.8rem;
+      opacity: 0.7;
+    }
+    .section--dark .ornament { color: var(--taupe); }
+
+    .section__body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--ink);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .section--dark .section__body { color: var(--champagne); }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── STORY TIMELINE ──────────────────── */
+    .timeline {
+      max-width: 620px;
+      margin: 3rem auto 0;
+      position: relative;
+      text-align: left;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+    }
+
+    .timeline-item--accent .timeline-dot {
+      background: var(--sage-deep);
+      border-color: var(--sage-deep);
+    }
+
+    .timeline-body { padding-top: 0.6rem; }
+
+    .timeline-year {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-heading {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--night);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .timeline-text {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+
+    /* ── PHOTO SPLIT ─────────────────────── */
+    .photo-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      max-width: 640px;
+      margin: 3rem auto 0;
+    }
+
+    .photo-split img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(12%) saturate(0.9);
+    }
+
+    .photo-split img:first-child {
+      aspect-ratio: 2/3;
+    }
+
+    .photo-split img:last-child {
+      aspect-ratio: 2/3;
+      margin-top: 2.5rem;
+    }
+
+    /* ── QUOTE BLOCK ─────────────────────── */
+    .quote-block {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .quote-block__mark {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 4rem;
+      line-height: 0.6;
+      color: var(--taupe);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .quote-block__text {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    .quote-block__attr {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    /* ── BTN ─────────────────────────────── */
+    .btn {
+      display: inline-block;
+      margin-top: 2.2rem;
+      padding: 1rem 3rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn:hover { background: var(--gold); color: var(--ivory); }
+
+    /* ── FOOTER ──────────────────────────── */
+    .footer {
+      background: var(--night);
+      border-top: 1px solid rgba(107,143,112,0.25);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .footer__names {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--champagne);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.7rem;
+    }
+    .footer__note {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      opacity: 0.7;
+    }
+
+    /* ── RESPONSIVE ──────────────────────── */
+    @media (max-width: 900px) {
+      .timeline { max-width: 100%; }
+      .photo-split { max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .page-hero { padding: 4rem 1.5rem 3rem; }
+      .page-hero__title { font-size: clamp(2rem, 11vw, 3.2rem); }
+      .section { padding: 3.2rem 1.25rem; }
+      .nav a { padding: 0.7rem 0.65rem; font-size: 9px; letter-spacing: 0.14em; }
+      .timeline::before { left: 18px; }
+      .timeline-item { grid-template-columns: 38px 1fr; gap: 1rem; }
+      .timeline-dot { width: 38px; height: 38px; font-size: 1rem; }
+      .photo-split { grid-template-columns: 1fr; }
+      .photo-split img:last-child { margin-top: 0; }
+      .photo-split img { aspect-ratio: 4/3; }
+    }
+
+    @media (max-width: 380px) {
+      .nav a { padding: 0.6rem 0.45rem; font-size: 8px; }
+      .section { padding: 2.8rem 1rem; }
+      .page-hero { padding: 3rem 1rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero__photo" aria-hidden="true"></div>
+    <div class="page-hero__content">
+      <p class="page-hero__label">Onkgopotse &amp; Pabalelo</p>
+      <h1 class="page-hero__title">Our Story</h1>
+      <div class="page-hero__rule"></div>
+      <p class="page-hero__sub">How two became one</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav__inner">
+      <a href="onkgopotse-pabalelo-wedding.html">Welcome</a>
+      <a href="story.html" class="active">Our Story</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="onkgopotse-pabalelo-wedding.html#stay">Where to Stay</a>
+      <a href="faq.html">Q&amp;A</a>
+      <a href="onkgopotse-pabalelo-wedding.html#moments">Moments</a>
+      <a href="onkgopotse-pabalelo-wedding.html#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <!-- INTRO -->
+  <section class="section">
+    <p class="section__label">The beginning</p>
+    <h2 class="section__title">Every great love starts simply</h2>
+    <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+    <p class="section__body">
+      Ours began with a moment that felt completely ordinary — a conversation that stretched well past its natural ending, laughter that surprised us both, and a quiet realisation that something had quietly, unmistakably shifted.
+      <br /><br />
+      What followed was not a fairytale — it was something better. It was real: patience and honesty, growth and trust, a thousand small choosing-each-other moments that built, slowly, into a life we couldn't imagine without the other.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PHOTO SPLIT -->
+  <section class="section section--tinted">
+    <p class="section__label">A glimpse</p>
+    <h2 class="section__title">Frames from our journey</h2>
+    <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+    <div class="photo-split">
+      <img src="https://withjoy.com/media/0adc45c0-4d0f-579c-969d-519b37e77781/b3a2bcd0-68a7-11f1-a395-43b5e961daa9-IMG_8613.jpeg" alt="Onkgopotse and Pabalelo" />
+      <img src="https://withjoy.com/media/0adc45c0-4d0f-579c-969d-519b37e77781/b3a2bcd0-68a7-11f1-a395-43b5e961daa9-IMG_8613.jpeg" alt="Together" />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <p class="section__label">The milestones</p>
+    <h2 class="section__title">How we got here</h2>
+    <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true">🌱</div>
+        <div class="timeline-body">
+          <p class="timeline-year">The first meeting</p>
+          <h3 class="timeline-heading">A conversation that didn't end</h3>
+          <p class="timeline-text">
+            We met the way most meaningful things happen — unexpectedly, in an ordinary moment that turned out to be anything but. One conversation turned into many more. We were both trying not to make it obvious how much we enjoyed each other's company.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true">✉️</div>
+        <div class="timeline-body">
+          <p class="timeline-year">Early days</p>
+          <h3 class="timeline-heading">Getting to know each other</h3>
+          <p class="timeline-text">
+            Late nights talking about everything and nothing. Slowly discovering how much we had in common — and how much we didn't — and finding that both felt like gifts. The world got a little bigger every time we were together.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true">🌿</div>
+        <div class="timeline-body">
+          <p class="timeline-year">Growing together</p>
+          <h3 class="timeline-heading">Choosing each other, every day</h3>
+          <p class="timeline-text">
+            Love, we found, is not one large moment. It's a thousand small ones — a cup of tea made just right, showing up on a hard day, choosing patience when it would have been easier not to. We kept choosing.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-item--accent">
+        <div class="timeline-dot" aria-hidden="true">💍</div>
+        <div class="timeline-body">
+          <p class="timeline-year">The proposal</p>
+          <h3 class="timeline-heading">She said yes</h3>
+          <p class="timeline-text">
+            The question had been living in Onkgopotse's heart for some time before the words finally arrived. When they did, there was no doubt — Pabalelo said yes before the sentence was finished. Now we're here, and we couldn't be more ready.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="section--dark">
+    <div class="section__inner">
+      <div class="quote-block">
+        <span class="quote-block__mark" aria-hidden="true">"</span>
+        <p class="quote-block__text">
+          I have found the one whom my soul loves.
+        </p>
+        <p class="quote-block__attr">Song of Solomon 3:4</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="section">
+    <p class="section__label">You're invited</p>
+    <h2 class="section__title">Join us as the next chapter begins</h2>
+    <span class="ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+    <p class="section__body">
+      We would love nothing more than to celebrate this moment with you — the people who have been part of our story all along.
+    </p>
+    <a class="btn" href="onkgopotse-pabalelo-wedding.html#rsvp">RSVP now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer__names">Onkgopotse &amp; Pabalelo</p>
+    <p class="footer__note">With love · 2025</p>
+  </footer>
+
+</body>
+</html>
